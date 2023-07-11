@@ -1,11 +1,14 @@
 # train_model.py
 import pandas as pd
+import Helpers.DataLoader as Dtl
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import preprocessing
 
 # Leer los datos
-df = pd.read_csv("./data/processed/RH_procesado.csv")
+def main():
+    reader = Dtl.Dataloader("./data/processed/RH_procesado.csv")
+    df = reader.load_data()
 
 # Convertir columnas no numéricas a numéricas
 for column in df.columns:
